@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import CartItem from '../Components/CartItem';
 import {Link} from "react-router-dom"
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'; 
  
 const Cart = () => {
 
@@ -9,7 +9,7 @@ const Cart = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    setTotalAmount( cart.reduce( (acc, curr) => acc + curr.price ), 0);
+    setTotalAmount( cart.reduce( (acc, curr) => acc + curr.price , 0 ));
 
   }, [cart])
 
