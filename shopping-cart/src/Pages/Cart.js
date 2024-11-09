@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useSelector } from 'react'
+import React, { useEffect, useState} from 'react'
 import CartItem from '../Components/CartItem';
 import {Link} from "react-router-dom"
+import { useSelector } from 'react-redux';
  
 const Cart = () => {
 
