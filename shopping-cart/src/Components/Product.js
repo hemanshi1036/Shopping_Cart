@@ -17,7 +17,7 @@ const Product = ({post}) => {
 
   const removeFromCart = () => {
     dispatch(remove(post.id));
-    toast.success("Item Removed From Cart")
+    toast.error("Item Removed From Cart")
   }
   return (
     <div>
@@ -28,7 +28,7 @@ const Product = ({post}) => {
       </div>
       <div>
         <p>
-          {post.description}
+          {post.description.split(" ").slice(0,10).join(" ") + "..."}
         </p>
       </div>
       <div>

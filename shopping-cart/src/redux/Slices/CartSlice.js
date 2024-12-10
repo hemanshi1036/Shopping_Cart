@@ -3,8 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const CartSlice = createSlice({
     name:"cart",
     initialState: [],
-    //ahiya reducers lakhvu baki error aavse
-    
+    //ahiya reducers lakhvu padse baki reducer lakhvathi error aavse
     reducers:{
         add:(state,action) => {
             state.push(action.payload);
