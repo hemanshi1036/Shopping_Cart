@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav className='flex flex-row justify-between items-center h-20 max-w-6xl max-auto'>
       <NavLink to="/">
           <div className="ml-5"> 
-          <img src="../logo.png" className="h-14 items-center"/>
+          <img src="../logo.png" className="h-14 items-center justify-between"/>
           </div>
       </NavLink>
       <div className="flex items-center font-medium text-slate-100 mr-5 space-x-6">
@@ -45,7 +45,13 @@ const Navbar = () => {
         <p>Login</p>
         </NavLink>
 
-     
+        <NavLink to="/signup"
+        className='text-white border-2 border-white rounded-full font-semibold
+        text-[12px] p-1 px-3  hover:bg-white
+        hover:text-black
+        transition duration-300 ease-in'>
+        <p>Sign Up</p>
+        </NavLink>
          
         </div>
       </nav>
