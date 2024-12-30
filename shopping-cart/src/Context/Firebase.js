@@ -1,7 +1,8 @@
 import { createContext, useContext } from "react";
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword as firebaseSignInWithEmailAndPassword } from "firebase/auth";
 import {getDatabase, set, ref} from "firebase/database";
+import toast from "react-hot-toast";
 
 const firebaseConfig = {
     apiKey: "AIzaSyA1KZP9-T7OQJfqrJRhry3EzJb41CKQAG8",
@@ -30,9 +31,21 @@ export const FirebaseProvider = (props) => {
        return createUserWithEmailAndPassword(firebaseAuth, email, password)
     }; 
 
+    // const signInWithEmailAndPassword =(email,password) => {
+    //   return signInWithEmailAndPasswordd(firebaseAuth, email, password)
+    //   .then((value) => toast.success("Successfully Loged In"))
+    //     .catch((err) => toast.error("Failed to loged In "))
+    // };
+
+    const signInWithEmailAndPassword = (email, password) => {
+      firebaseSignInWithEmailAndPassword(firebaseAuth, email, password)
+      .then((value) => toast.success("Successfully Loged In"))
+      .catch((err) => toast.error("Failed to loged In "));
+    }
+        
     const putData = (key, data) => set(ref(database, key), data);
 
-    return <FirebaseContext.Provider value={ { signupUserWithEmailAndPassword, putData}}>
+    return <FirebaseContext.Provider value={ { signupUserWithEmailAndPassword, putData,signInWithEmailAndPassword}}>
                 {props.children}
             </FirebaseContext.Provider>
     

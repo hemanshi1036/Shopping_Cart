@@ -1,8 +1,11 @@
 
 import React, { useState } from 'react'
-
+import { useFirebase } from "../Context/Firebase";
 
 const Login = () => {
+
+  const firebase = useFirebase();
+  
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +22,8 @@ const Login = () => {
         <input onChange={(e) => setPassword(e.target.value)}
       value={password} 
         type='password' placeholder='Enter Your Password here' />
-        <button>login</button>
+        <button onClick={() => {firebase.signInWithEmailAndPassword(email, password)
+      }}>Sign In</button>
     </div>
   )
 }
